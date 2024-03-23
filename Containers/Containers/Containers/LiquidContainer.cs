@@ -11,9 +11,20 @@ public class LiquidContainer:Container,IHazardNotifier
         _typeOfCargo = typeOfCargo;
         SerialNumber = "KON-L-" + _ID;
     }
-
+    public override string ToString()
+    {
+        return "CargoWeight:" + CargoWeight + " " +
+               "Height:" + Height + " " +
+               "Weight:" + Weight + " " +
+               "Depth:" + Depth + "" +
+               "MaxCargoWeight" + MaxCargoWeight + " " +
+               "ID:" + _ID + "" +
+               "Serial Number:" + SerialNumber + " " +
+               "TypeOfCargo:" + _typeOfCargo;
+    }
     public override void Load(double cargoWeight)
     {
+        base.Load(cargoWeight);
         if (_typeOfCargo == TypeOfCargo.Dangerous)
         {
             if (cargoWeight > MaxCargoWeight / 2)

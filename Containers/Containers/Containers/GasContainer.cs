@@ -11,7 +11,17 @@ public class GasContainer:Container,IHazardNotifier
         GasPressure = gasPressure;
         SerialNumber = "KON-G-" + _ID;
     }
-
+    public override string ToString()
+    {
+        return "CargoWeight:" + CargoWeight + " " +
+               "Height:" + Height + " " +
+               "Weight:" + Weight + " " +
+               "Depth:" + Depth + "" +
+               "MaxCargoWeight" + MaxCargoWeight + " " +
+               "ID:" + _ID + "" +
+               "Serial Number:" + SerialNumber + " " +
+               "GasPressure:" + GasPressure;
+    }
     public override void Unload()
     {
         CargoWeight = CargoWeight * 0.05;

@@ -30,6 +30,16 @@ public class Container:IContainer
         CargoWeight = 0;
     }
 
+    public override string ToString()
+    {
+        return "CargoWeight:" + CargoWeight + " " +
+               "Height:" + Height + " " +
+               "Weight:" + Weight + " " +
+               "Depth:" + Depth + "" +
+               "MaxCargoWeight" + MaxCargoWeight + " " +
+               "ID:" + _ID;
+    }
+
     public virtual void Load(double cargoWeight)
     {
         if (cargoWeight > MaxCargoWeight)
