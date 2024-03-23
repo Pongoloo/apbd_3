@@ -25,7 +25,7 @@ public class Container:IContainer
         _containerID++;
     }
 
-    public void Unload()
+    public virtual void Unload()
     {
         CargoWeight = 0;
     }

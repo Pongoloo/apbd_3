@@ -32,6 +32,6 @@ public class LiquidContainer:Container,IHazardNotifier
 
     public void SendHazardNotification()
     {
-        Console.WriteLine("A dangerous situation was about to occur in Container nr:"+_ID);
+        Console.WriteLine("A dangerous situation was about to occur in LiquidContainer nr:"+_ID);
     }
 }
