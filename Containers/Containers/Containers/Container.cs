@@ -1,3 +1,4 @@
+using Containers.Exceptions;
 using Containers.Interfaces;
 
 namespace Containers.Containers;
@@ -8,26 +9,34 @@ public class Container:IContainer
     public int Height { get; set; }
     public int Weight { get; set; }
     public int Depth { get; set; }
+    public double MaxCargoWeight { get; set; }
     public string SerialNumber { get; set; }
-    private static int ContainerID=1;
+    public readonly int _ID;
+    private static int _containerID=1;
 
-    public Container(double cargoWeight, int height, int weight, int depth)
+    public Container(double cargoWeight, int height, int weight, int depth, double maxCargoWeight)
     {
         CargoWeight = cargoWeight;
         Height = height;
         Weight = weight;
         Depth = depth;
-        SerialNumber = "KON-" + '?' + "-" + ContainerID;
-        ContainerID++;
+        MaxCargoWeight = maxCargoWeight;
+        _ID = _containerID;
+        _containerID++;
     }
 
     public void Unload()
     {
-        throw new NotImplementedException();
+        CargoWeight = 0;
     }
 
-    public void Load(double cargoWeight)
+    public virtual void Load(double cargoWeight)
     {
-        throw new NotImplementedException();
+        if (cargoWeight > MaxCargoWeight)
+        {
+            throw new OverFillException();
+        }
+
+        CargoWeight = cargoWeight;
     }
 }
